@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Schéma généré par Metro 4.0.2 (code-first), copié depuis http://localhost:8080/bib/EmpruntService?xsd=1 -->
+<xs:schema xmlns:tns="http://supnum.mr/bib" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://supnum.mr/bib">
+  <xs:element name="LivreIndisponible" nillable="true" type="tns:livreIndisponibleInfo"/>
+  <xs:element name="emprunterLivre" type="tns:emprunterLivre"/>
+  <xs:element name="emprunterLivreResponse" type="tns:emprunterLivreResponse"/>
+  <xs:element name="rendreLivre" type="tns:rendreLivre"/>
+  <xs:element name="rendreLivreResponse" type="tns:rendreLivreResponse"/>
+  <xs:complexType name="rendreLivre">
+    <xs:sequence><xs:element name="numeroEmprunt" type="xs:string" minOccurs="0"/></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="rendreLivreResponse">
+    <xs:sequence><xs:element name="penalite" type="xs:decimal" minOccurs="0"/></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="emprunterLivre">
+    <xs:sequence>
+      <xs:element name="idAdherent" type="xs:string" minOccurs="0"/>
+      <xs:element name="isbn" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="emprunterLivreResponse">
+    <xs:sequence><xs:element name="emprunt" type="tns:emprunt" minOccurs="0"/></xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="emprunt">
+    <xs:sequence>
+      <xs:element name="numero" type="xs:string" minOccurs="0"/>
+      <xs:element name="dateRetour" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="livreIndisponibleInfo">
+    <xs:sequence>
+      <xs:element name="isbn" type="xs:string" minOccurs="0"/>
+      <xs:element name="retourPrevu" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

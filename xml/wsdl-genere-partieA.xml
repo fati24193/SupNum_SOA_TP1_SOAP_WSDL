@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- WSDL généré par Metro 4.0.2 (code-first), copié depuis http://localhost:8080/bib/EmpruntService?wsdl -->
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://supnum.mr/bib" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://supnum.mr/bib" name="EmpruntService">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://supnum.mr/bib" schemaLocation="http://localhost:8080/bib/EmpruntService?xsd=1"/>
+    </xsd:schema>
+  </types>
+  <message name="emprunterLivre"><part name="parameters" element="tns:emprunterLivre"/></message>
+  <message name="emprunterLivreResponse"><part name="parameters" element="tns:emprunterLivreResponse"/></message>
+  <message name="LivreIndisponibleException"><part name="fault" element="tns:LivreIndisponible"/></message>
+  <message name="rendreLivre"><part name="parameters" element="tns:rendreLivre"/></message>
+  <message name="rendreLivreResponse"><part name="parameters" element="tns:rendreLivreResponse"/></message>
+  <portType name="EmpruntService">
+    <operation name="emprunterLivre">
+      <input wsam:Action="http://supnum.mr/bib/EmpruntService/emprunterLivreRequest" message="tns:emprunterLivre"/>
+      <output wsam:Action="http://supnum.mr/bib/EmpruntService/emprunterLivreResponse" message="tns:emprunterLivreResponse"/>
+      <fault message="tns:LivreIndisponibleException" name="LivreIndisponibleException" wsam:Action="http://supnum.mr/bib/EmpruntService/emprunterLivre/Fault/LivreIndisponibleException"/>
+    </operation>
+    <operation name="rendreLivre">
+      <input wsam:Action="http://supnum.mr/bib/EmpruntService/rendreLivreRequest" message="tns:rendreLivre"/>
+      <output wsam:Action="http://supnum.mr/bib/EmpruntService/rendreLivreResponse" message="tns:rendreLivreResponse"/>
+    </operation>
+  </portType>
+  <binding name="EmpruntPortBinding" type="tns:EmpruntService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="emprunterLivre">
+      <soap:operation soapAction=""/>
+      <input><soap:body use="literal"/></input>
+      <output><soap:body use="literal"/></output>
+      <fault name="LivreIndisponibleException"><soap:fault name="LivreIndisponibleException" use="literal"/></fault>
+    </operation>
+    <operation name="rendreLivre">
+      <soap:operation soapAction=""/>
+      <input><soap:body use="literal"/></input>
+      <output><soap:body use="literal"/></output>
+    </operation>
+  </binding>
+  <service name="EmpruntService">
+    <port name="EmpruntPort" binding="tns:EmpruntPortBinding">
+      <soap:address location="http://localhost:8080/bib/EmpruntService"/>
+    </port>
+  </service>
+</definitions>
